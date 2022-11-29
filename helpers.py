@@ -3,7 +3,7 @@ def primes_up_to(max_num: int) -> list[int]:
         return []
 
     nums = list(range(1, max_num + 1))
-    for i in range(1, int(max_num ** 0.5) + 1):
+    for i in range(1, int(max_num**0.5) + 1):
         if nums[i] == 0:
             continue
 
@@ -18,6 +18,6 @@ assert primes_up_to(0) == []
 assert primes_up_to(1) == []
 assert primes_up_to(2) == [2]
 assert primes_up_to(3) == [2, 3]
-assert primes_up_to(17) == [2,3,5,7,11,13,17]
-assert primes_up_to(18) == [2,3,5,7,11,13,17]
-assert primes_up_to(19) == [2,3,5,7,11,13,17,19]
+assert primes_up_to(17) == [2, 3, 5, 7, 11, 13, 17]
+assert primes_up_to(18) == [2, 3, 5, 7, 11, 13, 17]
+assert primes_up_to(19) == [2, 3, 5, 7, 11, 13, 17, 19]

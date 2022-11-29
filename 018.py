@@ -31,7 +31,7 @@ for i in range(1, len(nums)):
 # optimum in each "middle cell" is the optimum coming from either left or right
 # above plus cell value
 for y in range(2, len(nums)):
-    for x in range(1, len(nums[y])-1):
+    for x in range(1, len(nums[y]) - 1):
         sums[y][x] = max(sums[y - 1][x], sums[y - 1][x - 1]) + nums[y][x]
 
 print(max(sums[len(sums) - 1]))

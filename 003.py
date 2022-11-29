@@ -9,4 +9,10 @@ def is_prime(x: int) -> bool:
 
 number = 600851475143
 
-print(next(factor for factor in range(int(number**0.5) + 1, 2, -1) if number % factor == 0 and is_prime(factor)))
+print(
+    next(
+        factor
+        for factor in range(int(number**0.5) + 1, 2, -1)
+        if number % factor == 0 and is_prime(factor)
+    )
+)

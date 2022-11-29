@@ -32,7 +32,7 @@ largest = 0
 # left/right
 for y in range(20):
     for x in range(17):
-        largest = max(largest, prod(grid[y][x:x + 4]))
+        largest = max(largest, prod(grid[y][x : x + 4]))
 
 # up/down
 for y in range(17):

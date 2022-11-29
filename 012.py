@@ -1,13 +1,12 @@
 def get_factors(num: int) -> list[int]:
     factors = []
-    for factor in range(1, int(num ** 0.5)+1):
+    for factor in range(1, int(num**0.5) + 1):
         if num % factor == 0:
             factors.append(factor)
             if num // factor != factor:
                 factors.append(num // factor)
 
     return factors
-
 
 
 assert sorted(set(get_factors(1))) == [1]
@@ -31,4 +30,3 @@ while True:
     if len(factors) > 500:
         print(triangle)
         break
-
