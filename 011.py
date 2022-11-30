@@ -1,5 +1,3 @@
-from operator import mul
-from functools import reduce
 from math import prod
 
 grid_content = """

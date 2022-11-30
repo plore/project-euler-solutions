@@ -1,6 +1,6 @@
 def is_palindrome(x: int) -> bool:
-    l = list(str(x))[::-1]
-    return int("".join(l)) == x
+    reverse_list = list(str(x))[::-1]
+    return int("".join(reverse_list)) == x
 
 
 largest = 0
