@@ -1,12 +1,5 @@
 from itertools import takewhile
-from typing import Generator
-
-
-def fibonacci() -> Generator[int, None, None]:
-    a, b = 1, 1
-    while True:
-        yield a
-        a, b = b, a + b
+from helpers import fibonacci
 
 
 terms = takewhile(lambda term: term < 4000000, fibonacci())
