@@ -1,23 +1,4 @@
-def is_prime(x):
-    if x <= 1:
-        return False
-    if x == 2 or x == 3:
-        return True
-    if x % 2 == 0 or x % 3 == 0:
-        return False
-    for m in range(5, int(x**0.5) + 1, 6):
-        if x % m == 0 or x % (m + 2) == 0:
-            return False
-    return True
-
-
-assert is_prime(-1) == False
-assert is_prime(0) == False
-assert is_prime(1) == False
-assert is_prime(2) == True
-assert is_prime(3) == True
-assert is_prime(4) == False
-assert is_prime(5) == True
+from helpers import is_prime
 
 # Since we start at n = 0, we can exclude:
 # - all negative b since negative numbers are not prime

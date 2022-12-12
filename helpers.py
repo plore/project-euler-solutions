@@ -63,3 +63,46 @@ def fibonacci() -> Generator[int, None, None]:
 
 
 assert list(islice(fibonacci(), 10)) == [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+
+def is_prime(x: int) -> bool:
+    if x <= 1:
+        return False
+    if x == 2 or x == 3:
+        return True
+    if x % 2 == 0 or x % 3 == 0:
+        return False
+    for m in range(5, int(x**0.5) + 1, 6):
+        if x % m == 0 or x % (m + 2) == 0:
+            return False
+    return True
+
+
+assert is_prime(-1) == False
+assert is_prime(0) == False
+assert is_prime(1) == False
+assert is_prime(2) == True
+assert is_prime(3) == True
+assert is_prime(4) == False
+assert is_prime(5) == True
+assert is_prime(6) == False
+assert is_prime(7) == True
+assert is_prime(8) == False
+assert is_prime(9) == False
+assert is_prime(10) == False
+assert is_prime(11) == True
+
+
+def is_palindrome(x: int) -> bool:
+    reverse_list = list(str(x))[::-1]
+    return int("".join(reverse_list)) == x
+
+
+assert is_palindrome(1) == True
+assert is_palindrome(2) == True
+assert is_palindrome(11) == True
+assert is_palindrome(12) == False
+assert is_palindrome(101) == True
+assert is_palindrome(102) == False
+assert is_palindrome(112) == False
+assert is_palindrome(212) == True

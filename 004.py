@@ -1,7 +1,4 @@
-def is_palindrome(x: int) -> bool:
-    reverse_list = list(str(x))[::-1]
-    return int("".join(reverse_list)) == x
-
+from helpers import is_palindrome
 
 largest = 0
 
