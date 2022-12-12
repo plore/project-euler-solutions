@@ -3,7 +3,7 @@ from helpers import is_prime, primes_up_to
 
 def rot_one(num: int) -> int:
     n = len(str(num))
-    return (num % 10 ** (n - 1)) * 10 + num // 10 ** (n - 1)
+    return (num % 10 ** (n - 1)) * 10 + num // 10 ** (n - 1)  # type: ignore[no-any-return]
 
 
 def circular_prime(num: int) -> bool:

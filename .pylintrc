@@ -1,0 +1,8 @@
+[MAIN]
+disable=
+    missing-docstring,
+    duplicate-code,
+    unspecified-encoding,
+	invalid-name,
+	line-too-long,
+

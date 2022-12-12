@@ -26,7 +26,7 @@ assert truncatable_from_left(3797)
 truncatable_from_right = [2, 3, 5, 7]
 allowed_last_digits = [1, 3, 7, 9]
 
-result = set()
+result: set[int] = set()
 while len(result) < 11:
     truncatable_from_right = [
         10 * a + b

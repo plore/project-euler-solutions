@@ -1,5 +1,5 @@
-from typing import Generator
 from itertools import islice
+from typing import Generator
 
 
 def get_factors(num: int, include_num: bool = True) -> list[int]:
@@ -78,19 +78,19 @@ def is_prime(x: int) -> bool:
     return True
 
 
-assert is_prime(-1) == False
-assert is_prime(0) == False
-assert is_prime(1) == False
-assert is_prime(2) == True
-assert is_prime(3) == True
-assert is_prime(4) == False
-assert is_prime(5) == True
-assert is_prime(6) == False
-assert is_prime(7) == True
-assert is_prime(8) == False
-assert is_prime(9) == False
-assert is_prime(10) == False
-assert is_prime(11) == True
+assert not is_prime(-1)
+assert not is_prime(0)
+assert not is_prime(1)
+assert is_prime(2)
+assert is_prime(3)
+assert not is_prime(4)
+assert is_prime(5)
+assert not is_prime(6)
+assert is_prime(7)
+assert not is_prime(8)
+assert not is_prime(9)
+assert not is_prime(10)
+assert is_prime(11)
 
 
 def is_palindrome(x: int) -> bool:
@@ -98,11 +98,22 @@ def is_palindrome(x: int) -> bool:
     return int("".join(reverse_list)) == x
 
 
-assert is_palindrome(1) == True
-assert is_palindrome(2) == True
-assert is_palindrome(11) == True
-assert is_palindrome(12) == False
-assert is_palindrome(101) == True
-assert is_palindrome(102) == False
-assert is_palindrome(112) == False
-assert is_palindrome(212) == True
+assert is_palindrome(1)
+assert is_palindrome(2)
+assert is_palindrome(11)
+assert not is_palindrome(12)
+assert is_palindrome(101)
+assert not is_palindrome(102)
+assert not is_palindrome(112)
+assert is_palindrome(212)
+
+
+def to_num(digits: list[int]) -> int:
+    return sum([d * 10**power for power, d in enumerate(digits[::-1])])
+
+
+assert to_num([]) == 0
+assert to_num([0]) == 0
+assert to_num([3]) == 3
+assert to_num([1, 2, 3]) == 123
+assert to_num([0, 1, 2, 3]) == 123
