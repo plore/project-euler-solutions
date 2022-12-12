@@ -10,9 +10,9 @@ def circular_prime(num: int) -> bool:
     if num in [2, 3, 5, 7]:
         return True
     s = str(num)
-    if any([digit in s for digit in "024568"]):
+    if any(digit in s for digit in "024568"):
         return False
-    for r in range(len(s) - 1):
+    for _ in range(len(s) - 1):
         num = rot_one(num)
         if not is_prime(num):
             return False

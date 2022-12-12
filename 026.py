@@ -1,15 +1,15 @@
-def cycle_length(d: int) -> int:
+def cycle_length(denominator: int) -> int:
     rest_values = [1]
     rest = 1
     while True:
         if rest == 0:
-            return 0  # 1 / d has a finite decimal representation
-        while rest < d:
+            return 0  # 1 / denominator has a finite decimal representation
+        while rest < denominator:
             rest *= 10
-        rest %= d
+        rest %= denominator
         # check for cycle: the same rest as seen before will lead to the same sequence again
-        for i in range(len(rest_values)):
-            if rest_values[i] == rest:
+        for i, rest_value in enumerate(rest_values):
+            if rest_value == rest:
                 return len(rest_values) - i
         rest_values.append(rest)
 

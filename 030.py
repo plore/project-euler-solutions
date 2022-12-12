@@ -3,7 +3,7 @@
 
 total = 0
 for n in range(2, 354294):
-    if sum([int(c) ** 5 for c in str(n)]) == n:
+    if sum(int(c) ** 5 for c in str(n)) == n:
         total += n
 
 print(total)

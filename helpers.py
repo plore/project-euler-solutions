@@ -68,7 +68,7 @@ assert list(islice(fibonacci(), 10)) == [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 def is_prime(x: int) -> bool:
     if x <= 1:
         return False
-    if x == 2 or x == 3:
+    if x in (2, 3):
         return True
     if x % 2 == 0 or x % 3 == 0:
         return False
@@ -109,7 +109,7 @@ assert is_palindrome(212)
 
 
 def to_num(digits: list[int]) -> int:
-    return sum([d * 10**power for power, d in enumerate(digits[::-1])])
+    return sum(d * 10**power for power, d in enumerate(digits[::-1]))
 
 
 assert to_num([]) == 0
