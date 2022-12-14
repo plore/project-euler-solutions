@@ -1,5 +1,5 @@
 from itertools import islice
-from typing import Generator
+from typing import Generator, Sequence
 
 
 def get_factors(num: int, include_num: bool = True) -> list[int]:
@@ -108,7 +108,7 @@ assert not is_palindrome(112)
 assert is_palindrome(212)
 
 
-def to_num(digits: list[int]) -> int:
+def to_num(digits: Sequence[int]) -> int:
     return sum(d * 10**power for power, d in enumerate(digits[::-1]))
 
 
@@ -116,4 +116,29 @@ assert to_num([]) == 0
 assert to_num([0]) == 0
 assert to_num([3]) == 3
 assert to_num([1, 2, 3]) == 123
+assert to_num((1, 2, 3)) == 123
 assert to_num([0, 1, 2, 3]) == 123
+
+
+def prime_factors(n: int) -> list[int]:
+    factors = []
+    d = 2
+    while n >= d**2:
+        while n % d == 0:
+            factors.append(d)
+            n //= d
+        d += 1
+    if n > 1:
+        factors.append(int(n))
+    return factors
+
+
+assert not prime_factors(-42)
+assert not prime_factors(0)
+assert not prime_factors(1)
+assert prime_factors(2) == [2]
+assert prime_factors(3) == [3]
+assert prime_factors(4) == [2, 2]
+assert prime_factors(5) == [5]
+assert prime_factors(6) == [2, 3]
+assert prime_factors(644) == [2, 2, 7, 23]

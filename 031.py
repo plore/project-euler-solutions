@@ -24,7 +24,7 @@ assert ways(6, [5, 2, 1]) == 5
 # Alternative way: dynamic programming
 
 
-def ways2():
+def ways2() -> int:
     coins = [1, 2, 5, 10, 20, 50, 100, 200]
     way_grid = [[0] * len(coins) for i in range(201)]
 
