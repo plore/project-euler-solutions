@@ -43,6 +43,7 @@ class HandRank(IntEnum):
 
 
 def score(cards: list[str]) -> tuple[HandRank, list[int]]:
+    # pylint: disable=too-many-return-statements
 
     values, suits = get_values_and_suits(cards)
 
@@ -62,13 +63,8 @@ def score(cards: list[str]) -> tuple[HandRank, list[int]]:
         case [(a, 2), (b, 1), (c, 1), (d, 1)]:
             return HandRank.ONE_PAIR, [a, *sorted([b, c, d], reverse=True)]
         case _:
-            flush = True
-            straight = False
-            for s in suits[1:]:
-                if s != suits[0]:
-                    flush = False
-            if values[0] - values[-1] == 4:
-                straight = True
+            straight = values[0] - values[-1] == 4
+            flush = len(set(suits)) == 1
 
             if straight and flush:
                 if values[0] == 12:
@@ -79,10 +75,7 @@ def score(cards: list[str]) -> tuple[HandRank, list[int]]:
             if straight:
                 return HandRank.STRAIGHT, [values[0]]
 
-            # default
-            maxval = max(values)
-            values.remove(max(values))
-            return HandRank.HIGH_CARD, [maxval, *values]
+            return HandRank.HIGH_CARD, [*values]
 
 
 assert score("5H 5C 6S 7S KD".split(" ")) == (HandRank.ONE_PAIR, [3, 11, 5, 4])
@@ -117,9 +110,11 @@ def one_wins(values1: list[int], values2: list[int]) -> bool:
 wins_player_one = 0
 for all_cards in hands:
     hand_one, hand_two = all_cards[:5], all_cards[5:]
-    rank1, values1 = score(hand_one)
-    rank2, values2 = score(hand_two)
-    if rank1 > rank2 or (rank1 == rank2 and one_wins(values1, values2)):
+    rank_one, values_one = score(hand_one)
+    rank_two, values_two = score(hand_two)
+    if rank_one > rank_two or (
+        rank_one == rank_two and one_wins(values_one, values_two)
+    ):
         wins_player_one += 1
 
 print(wins_player_one)

@@ -11,7 +11,6 @@ from helpers import is_prime, primes_up_to
 # positions, at least 8 - 3 = 5 family members will have distinct digits between replacement and non-replacement positions.
 primes = primes_up_to(1000000)
 
-sol = []
 for p in primes:
     digit, frequency = Counter(str(p)).most_common(1)[0]
     replacement_positions = [idx for idx, d in enumerate(str(p)) if d == digit]
