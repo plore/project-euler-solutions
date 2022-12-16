@@ -1,4 +1,5 @@
 from itertools import islice
+from math import gcd
 from typing import Generator, Sequence
 
 
@@ -142,3 +143,77 @@ assert prime_factors(4) == [2, 2]
 assert prime_factors(5) == [5]
 assert prime_factors(6) == [2, 3]
 assert prime_factors(644) == [2, 2, 7, 23]
+
+
+def fraction_representation(radicand: int) -> tuple[list[int], list[int]]:
+    x = radicand
+    a = []
+    cs: list[int] = []
+    ns: list[int] = []
+    ds: list[int] = []
+    c, n, d = 1, 0, 1
+    current = x**0.5
+
+    while True:
+        # Work with this representation and apply transformation steps:
+        # 1. Split off integer part and lower n correspondingly.
+        # 2. Invert fraction to add one overall fraction level.
+        # 3. Bring root expression from denominator to numerator again, using third binomial formula to determine new d
+        # 4. Cancel terms from new c and new d.
+        current = c * (x**0.5 + n) / d
+
+        # 1
+        a.append(int(current))
+        n -= int(current) * d
+
+        # 2
+        c = d
+
+        # 3
+        n = -n
+        d = x - n**2
+
+        # 4
+        c, d = int(c / gcd(c, d)), int(d / gcd(c, d))
+
+        # search for cycle
+        for idx, (old_c, old_n, old_d) in enumerate(zip(cs, ns, ds)):
+            if old_c == c and old_n == n and old_d == d:
+                return a[: idx + 1], a[idx + 1 :]
+
+        ds.append(d)
+        ns.append(n)
+        cs.append(c)
+
+
+assert fraction_representation(2) == ([1], [2])
+assert fraction_representation(3) == ([1], [1, 2])
+assert fraction_representation(5) == ([2], [4])
+assert fraction_representation(6) == ([2], [2, 4])
+assert fraction_representation(7) == ([2], [1, 1, 1, 4])
+assert fraction_representation(8) == ([2], [1, 4])
+assert fraction_representation(10) == ([3], [6])
+assert fraction_representation(11) == ([3], [3, 6])
+assert fraction_representation(12) == ([3], [2, 6])
+assert fraction_representation(13) == ([3], [1, 1, 1, 1, 6])
+
+
+def are_permutations(a: int, b: int) -> bool:
+    freqs_a = [0] * 10
+    freqs_b = [0] * 10
+    for c in str(a):
+        freqs_a[int(c)] += 1
+    for c in str(b):
+        freqs_b[int(c)] += 1
+    for x in range(10):
+        if freqs_b[x] != freqs_a[x]:
+            return False
+    return True
+
+
+assert are_permutations(1234, 4321)
+assert are_permutations(1234, 1324)
+assert are_permutations(1234, 1234)
+assert are_permutations(1111, 1111)
+assert not are_permutations(1111, 1112)
+assert not are_permutations(1111, 111)
