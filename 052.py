@@ -1,4 +1,4 @@
-def digits(n: int) -> list[int]:
+def digits(n: int) -> list[str]:
     return sorted(str(n))
 
 
