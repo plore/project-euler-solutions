@@ -7,10 +7,13 @@ from math import factorial
 # Alternative solution without "cheating"
 
 # Fixing the first digit to 0, there are 9! permutations for the other digits.
-# After running through those 9! permutations for the other digits, we increase the first digit to 1 and repeat.
+# After running through those 9! permutations for the other digits, we increase the
+# first digit to 1 and repeat.
 # 2 * 9! < 1000000 <= 3 * 9!, therefore the first digit has to be 2.
-# Starting with 0 (the lowest remaining digit) for the second position, there are 8! permutations for the other positions.
-# 6 * 8! < 1000000 - 2 * 9! <= 7 * 8!, therefore the second digit is 6th lowest remaining, which is 7.
+# Starting with 0 (the lowest remaining digit) for the second position, there are 8!
+# permutations for the other positions.
+# 6 * 8! < 1000000 - 2 * 9! <= 7 * 8!, therefore the second digit is 6th lowest
+# remaining, which is 7.
 # Continue like this until the last digit is reached.
 
 remaining_digits = list(range(10))

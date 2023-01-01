@@ -13,12 +13,14 @@ with open("082.txt", "r") as infile:
 
 d = len(matrix)
 
-# Initialization: since all matrix items are > 0 the minimal path to the leftmost column is the leftmost column itself.
+# Initialization: since all matrix items are > 0 the minimal path to the leftmost column
+# is the leftmost column itself.
 minimal_path_sum = [[matrix[y][0]] + [0] * (d - 1) for y in range(d)]
 
 for column in range(1, d):
     for row in range(0, d):
-        # Moving from left to right, it might be cheaper to arrive from another row and incur vertical movement cost.
+        # Moving from left to right, it might be cheaper to arrive from another row and
+        # incur vertical movement cost.
         minimal_path_sum[row][column] = min(
             minimal_path_sum[row_origin][column - 1]
             + vertical_movement_sum(matrix, column, row_origin, row)

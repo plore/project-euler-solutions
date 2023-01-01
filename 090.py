@@ -38,5 +38,6 @@ for config1 in d1_extended:
         if can_display_all_squares(config1, config2):
             count += 1
 
-# By iterating over the product of combinations but allowing both dice to be in either position we found each arrangement twice.
+# By iterating over the product of combinations but allowing both dice to be in either
+# position we found each arrangement twice.
 print(count // 2)

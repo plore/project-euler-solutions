@@ -6,8 +6,9 @@ for n in range(11, 100):
     for d in range(n + 1, 100):
         n0, n1 = divmod(n, 10)
         d0, d1 = divmod(d, 10)
-        # Cancelling both ones or both tens can never result in the same value unless the fraction equals 1.
-        # Therefore we need to check only for crosswise cancelling
+        # Cancelling both ones or both tens can never result in the same value unless
+        # the fraction equals 1.
+        # Therefore, we need to check only for crosswise cancelling
         if n0 == d1 and n1 * d == n * d0:
             nums.append(n)
             dens.append(d)

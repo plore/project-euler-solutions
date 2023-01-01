@@ -26,7 +26,8 @@ assert make_product_partitions(8) == {(2, 4), (2, 2, 2)}
 assert make_product_partitions(12) == {(2, 2, 3), (2, 6), (3, 4)}
 
 
-# From each product partition of n we can construct a product-sum set of k numbers by appending a certain number of ones.
+# From each product partition of n we can construct a product-sum set of k numbers by
+# appending a certain number of ones.
 def reachable_k(n: int) -> list[int]:
     res = []
     for pp in make_product_partitions(n):
@@ -35,7 +36,8 @@ def reachable_k(n: int) -> list[int]:
     return res
 
 
-# For any k thus reached the first n is minimal, therefore we only need to increase n until all desired k have been reached.
+# For any k thus reached the first n is minimal, therefore we only need to increase n
+# until all desired k have been reached.
 
 inf = 1000000
 minnums = [inf] * 12000

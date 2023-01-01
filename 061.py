@@ -25,7 +25,7 @@ def octa(n: int) -> int:
     return n * (3 * n - 2)
 
 
-# Triangle number grow the slowest and triangle(200) = 20100 has five digits already -> 200 is a good limit
+# Triangle number grow the slowest and triangle(200) = 20100 has five digits already
 nums = [
     [func(x) for x in range(200) if len(str(func(x))) == 4]
     for func in [triangle, square, penta, hexa, hepta, octa]

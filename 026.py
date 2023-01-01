@@ -7,7 +7,7 @@ def cycle_length(denominator: int) -> int:
         while rest < denominator:
             rest *= 10
         rest %= denominator
-        # check for cycle: the same rest as seen before will lead to the same sequence again
+        # check for cycle: the same rest as seen before will lead to the same sequence
         for i, rest_value in enumerate(rest_values):
             if rest_value == rest:
                 return len(rest_values) - i

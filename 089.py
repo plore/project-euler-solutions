@@ -1,5 +1,5 @@
 # While it is sufficient to apply subtraction rule simplifications, this solution
-# provides functions for construction and simplification of general valid roman numerals.
+# provides functions for construction and simplification of general valid roman numerals
 
 denominations = {"M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1}
 

@@ -1,9 +1,9 @@
 from helpers import primes_up_to
 
 # Use dynamic programming again:
-# Define w[i][j] as the number of ways i can be written as a sum primes up to the jth prime.
-# Boundaries are trivial; going from j - 1 to j for the number i we may add to w[i][j - 1]:
-#   1               if i == p[j], in which case we make use of the jth prime for the first time
+# Define w[i][j] as the number of ways i can be written as a sum of the first j primes.
+# Boundaries are trivial; going from j - 1 to j for number i we may add to w[i][j - 1]:
+#   1               if i == p[j], in which case we use the jth prime for the first time
 #   w[i - p[j]][j]  if i > p[j]
 #   0               otherwise
 #
@@ -22,7 +22,7 @@ from helpers import primes_up_to
 #  9 |  0   2   3   4   (3+3+3, 3+2+2+2, 5+2+2, 7+2)
 # 10 |  1   2   4   5   (2+2+2+2+2, 3+3+2+2, 5+5, 5+3+2, 7+3)
 
-# We assume the number of ways grows fast enough to reach 5000 ways with relatively few primes.
+# We assume the number of ways grows fast enough to reach 5000 ways with few primes.
 p = primes_up_to(1000)
 ways = [[0] * len(p) for i in [0, 1]]
 

@@ -1,5 +1,6 @@
 # 999999 -> 6 * 9 ^ 5 = 354294
-# Clearly, numbers higher than this always have a sum of digits fith powers smaller than the number itself
+# Clearly, numbers higher than this always have a sum of digits fifth powers smaller
+# than the number itself
 
 total = 0
 for n in range(2, 354294):

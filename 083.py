@@ -11,9 +11,11 @@ minimal_path_sum[0][0] = matrix[0][0]
 current_min = minimal_path_sum[-1][-1]
 
 
-# Pursue standard dynamic programming strategy, but iterate several times to allow for back-winding paths
+# Pursue standard dynamic programming strategy, but iterate several times to allow for
+# back-winding paths.
 # Each step greedily optimizes from the four neighboring positions.
-# Since we move from left to right and top to bottom, if any update occurs we know the bottom right sum will update as well.
+# Since we move from left to right and top to bottom, if any update occurs we know the
+# bottom right sum will update as well.
 def update(min_path_sum: list[list[int]], mat: list[list[int]]) -> None:
     for y in range(0, d):
         for x in range(0, d):

@@ -7,8 +7,9 @@ from helpers import is_prime, primes_up_to
 
 # Bold claim: the desired primes will contain at most six digits.
 # Start by focusing on primes with three identical digits and try all replacements.
-# Some members of the family will have more than three identical digits, but with at most three different digits in non-replacement
-# positions, at least 8 - 3 = 5 family members will have distinct digits between replacement and non-replacement positions.
+# Some members of the family will have more than three identical digits, but with at
+# most three different digits in non-replacement positions, at least 8 - 3 = 5 family
+# members will have distinct digits between replacement and non-replacement positions.
 primes = primes_up_to(1000000)
 
 for p in primes:

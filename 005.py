@@ -21,6 +21,6 @@
 # 19: 19
 # 20: 2, 2, 5
 #
-# The superset of all those sets of primes is {1, 2, 2, 2, 2, 3, 3, 5, 7, 11, 13, 17, 19}
+# The superset of those sets of primes is {1, 2, 2, 2, 2, 3, 3, 5, 7, 11, 13, 17, 19}
 
 print(1 * 2 * 2 * 2 * 2 * 3 * 3 * 5 * 7 * 11 * 13 * 17 * 19)

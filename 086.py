@@ -1,8 +1,11 @@
 from math import gcd
 
-# Always two cuboid faces have to be traversed, and from the 2D net it becomes clear that L**2 = a**2 + (b + c)**2 for path length L and dimensions a, b, c.
-# This is minimized if a > b, c (the two shorter edges point in the same direction on the 2D net).
-# Generate pythagorean triples L, a, (b + c) with a >= b >= c until there are over one million solutions a, b, c
+# Always two cuboid faces have to be traversed, and from the 2D net it becomes clear
+# that L**2 = a**2 + (b + c)**2 for path length L and dimensions a, b, c.
+# This is minimized if a > b, c (the two shorter edges point in the same direction on
+# the 2D net).
+# Generate pythagorean triples L, a, (b + c) with a >= b >= c until there are over one
+# million solutions a, b, c.
 
 
 def generate_triplets(limit: int) -> list[tuple[int, int, int]]:
@@ -43,7 +46,7 @@ def num_solutions(max_sidelength: int, triplets: list[tuple[int, int, int]]) -> 
         if a > max_sidelength:
             continue
 
-        # Count the number of ways to split bc up into integer b and c, excluding symmetries
+        # Add the number of ways to split bc up into integer b and c, exclude symmetries
         if bc <= a:
             count += int(bc / 2)
         else:

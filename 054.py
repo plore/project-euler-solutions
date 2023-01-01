@@ -76,7 +76,7 @@ def score(cards: list[str]) -> tuple[HandRank, list[int]]:
                 return HandRank.STRAIGHT, [values[0]]
 
             return HandRank.HIGH_CARD, [*values]
-    # pylint: disable=unpacking-non-sequence; https://github.com/PyCQA/pylint/issues/5288
+    # pylint: disable=unpacking-non-sequence; https://github.com/PyCQA/pylint/issues/5288 # noqa
 
 
 assert score("5H 5C 6S 7S KD".split(" ")) == (HandRank.ONE_PAIR, [3, 11, 5, 4])

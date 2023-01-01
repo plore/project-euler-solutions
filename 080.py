@@ -2,14 +2,15 @@ def sqrt_digits(num: int, steps: int) -> list[int]:
     if int(num**0.5) == num**0.5:
         return [int(num**0.5)]
 
-    # We can approximate, for any integer n, sqrt(n) = 10(a + 10(b + 10(c + ...)))) = with real a, b, c, ...
+    # We can approximate, for any integer n, sqrt(n) = 10(a + 10(b + 10(c + ...))))
+    # with real a, b, c, ...
     # Approximation strategy for 1 < n < 100:
     # 0. p(0) = 0, c(0) = n
-    # 1. Find largest integer x so that c(i) - (x^2 + 20xp(i)) > 0 -> this x is the next digit
+    # 1. Find the largest int x so that c(i) - (x^2 + 20xp(i)) > 0; x is the next digit
     # 2. c(i+1) = 100(c(i) - (x^2 + 20xp(i)))
     # 3. p(i+1) = 10p(i) + x
     #
-    # From step 3, after k steps we can express p(k) with digits (x(0), x(1), ..., x(k-1))
+    # From step 3, after k steps we can express p(k) with as (x(0), x(1), ..., x(k-1))
 
     res = []
     p = 0

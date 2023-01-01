@@ -109,7 +109,8 @@ parser.add_argument(
     metavar="N",
     type=int,
     nargs="*",
-    help="Numbers of problems to test. Accepts leading zeros (example: 042 037). Without given problem numbers will test all solutions.",
+    help="Numbers of problems to test. Accepts leading zeros (example: 042 037)."
+    + "Without given problem numbers will test all solutions.",
 )
 
 args = parser.parse_args()

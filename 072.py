@@ -1,6 +1,7 @@
 from helpers import primes_up_to
 
-# For each denominator d, Euler's Totient function gives the number of irreducible fractions n / d.
+# For each denominator d, Euler's Totient function gives the number of irreducible
+# fractions n / d.
 
 primes = primes_up_to(1000000)
 
@@ -22,8 +23,10 @@ for d in range(2, 1000000 + 1):
         m += 1
     totients[d] *= p ** (m - 1) * (p - 1)
 
-    # since d / x contains all the occurrences of p in d, no common prime factor remains between x and d / x.
-    # Therefore gcd(d, d/x) = 1 and we can use the multiplicative property of the Totient function.
+    # since d / x contains all the occurrences of p in d, no common prime factor remains
+    # between x and d / x.
+    # Therefore gcd(d, d/x) = 1 and we can use the multiplicative property of the
+    # Totient function.
     totients[d] *= totients[int(x)]
 
 print(sum(totients[2:]))

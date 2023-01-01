@@ -1,4 +1,5 @@
-# Expressing the ith iteration as a / b, by applying the iteration we get the (i+1)th iteration as (a + 2b) / (a + b)
+# Expressing the ith iteration as a / b, by applying the iteration we get the (i+1)th
+# iteration as (a + 2b) / (a + b).
 
 count = 0
 a = 3

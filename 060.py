@@ -19,7 +19,9 @@ assert compatible(7, 673)
 assert compatible(109, 673)
 assert not compatible(3, 5)
 
-# Divide problem in half: primes p with p % 3 == 1 will only be compatible with other primes q with q % 3 == 1 as otherwise the concatenated number would be divisible by three.
+# Divide problem in half: primes p with p % 3 == 1 will only be compatible with other
+# primes q with q % 3 == 1 as otherwise the concatenated number would be divisible by
+# three.
 # Same goes for primes p with p % 3 == 2.
 part1 = {
     prime: {num for num in primes if num % 3 == 1 and compatible(prime, num)}
@@ -39,8 +41,10 @@ for root, partners in compatibility.items():
     for p1, p2 in combinations(partners, 2):
         # Check each pair of numbers compatible with root:
         # 1. They have to be compatible to each other to form a trio.
-        # 2. Their compatible numbers in turn have to have an intersection of at least two more numbers.
-        # 3. At least two numbers in this intersection have to be compatible with root and with each other.
+        # 2. Their compatible numbers in turn have to have an intersection of at least
+        # two more numbers.
+        # 3. At least two numbers in this intersection have to be compatible with root
+        # and with each other.
 
         # Checking one direction is enough because of symmetry
         if p1 not in compatibility[p2]:

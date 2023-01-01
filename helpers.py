@@ -158,7 +158,8 @@ def fraction_representation(radicand: int) -> tuple[list[int], list[int]]:
         # Work with this representation and apply transformation steps:
         # 1. Split off integer part and lower n correspondingly.
         # 2. Invert fraction to add one overall fraction level.
-        # 3. Bring root expression from denominator to numerator again, using third binomial formula to determine new d
+        # 3. Bring root expression from denominator to numerator again, using third
+        # binomial formula to determine new d.
         # 4. Cancel terms from new c and new d.
         current = c * (x**0.5 + n) / d
 

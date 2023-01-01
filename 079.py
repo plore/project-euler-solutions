@@ -17,7 +17,8 @@ with open("079.txt") as infile:
 preceding = Counter(first for first, _ in relations)
 result = [digit for digit, _ in preceding.most_common()]
 
-# Assuming no digit occurs more than once, one digit preceding no other digits is still missing
+# Assuming no digit occurs more than once, one digit preceding no other digits is still
+# missing.
 missing_digit = next(second for _, second in relations if second not in result)
 result = result + [missing_digit]
 
