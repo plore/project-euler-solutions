@@ -31,10 +31,10 @@ assert right_triangles_from_origin((1, 2), 2) == 1
 assert right_triangles_from_origin((2, 2), 2) == 1
 
 
-count = 0
+num_triangles = 0
 limit = 50
-for xQ in range(1, limit + 1):
-    for yQ in range(0, limit + 1):
-        count += right_triangles_from_origin((xQ, yQ), limit)
+for x in range(1, limit + 1):
+    for y in range(0, limit + 1):
+        num_triangles += right_triangles_from_origin((x, y), limit)
 
-print(count)
+print(num_triangles)
